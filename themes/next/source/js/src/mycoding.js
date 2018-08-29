@@ -6,4 +6,13 @@ $(window).load(function(){
 	}else {
 		mycoding.style.display='none';
 	}
+      //只在more显示留言
+  var cruntUrl = window.location.href;
+	var container = document.getElementById('container');
+	if ( cruntUrl.indexOf("2018") != -1 ) {
+		//找到了
+		container.style.display='';
+	}else {
+		container.style.display='none';
+	}
 })
