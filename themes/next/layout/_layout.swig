@@ -5,7 +5,15 @@
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
   {% include '_third-party/analytics/index.swig' %}
+  <!-- gitalk评论插件css -->
   <link rel="stylesheet"  href="/js/src/gitalk.css">
+  <!-- 看板娘插件css -->
+  <link rel="stylesheet" href="/js/live2d/css/live2d.css" />
+  <style>
+  body {
+    user-select: none;
+  }
+  </style>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
@@ -15,6 +23,11 @@
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>
+    <div id="landlord">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+    <div class="hide-button">隐藏</div>
+</div>
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
@@ -64,6 +77,16 @@
     distractionFreeMode: true  // Facebook-like distraction free mode
   })
   gitalk.render('gitalk-container')
+  </script>
+  <!-- live2d看板娘 -->
+  <script type="text/javascript">
+    var message_Path = '/js/live2d/'
+    var home_Path = 'https://forever.netlify.com/'  //此处修改为你的域名，必须带斜杠
+  </script>
+  <script type="text/javascript" src="/js/live2d/js/live2d.js"></script>
+  <script type="text/javascript" src="/js/live2d/js/message.js"></script>
+  <script type="text/javascript">
+      loadlive2d("live2d", "/js/live2d/model/tia/model.json");
   </script>
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
