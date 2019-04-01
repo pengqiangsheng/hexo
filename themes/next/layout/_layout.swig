@@ -5,7 +5,7 @@
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
   {% include '_third-party/analytics/index.swig' %}
-  <link rel="stylesheet" href="https://pengqiangsheng.github.io/uploads/default.css">
+  <link rel="stylesheet"  href="/js/src/gitalk.css">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
@@ -22,7 +22,7 @@
             {% block content %}{% endblock %}
           </div>
          
-          <div id="container"></div>
+          <div id="gitalk-container"></div>
           {% include '_third-party/duoshuo-hot-articles.swig' %} {% include '_partials/comments.swig' %}
         </div>
         {% if theme.sidebar.display !== 'remove' %} {% block sidebar %}{% endblock %} {% endif %}
@@ -48,19 +48,20 @@
     {% endif %}
   </div>
   {% include '_scripts/vendors.swig' %} {% include '_scripts/commons.swig' %} {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %} {% include scheme_script %} {% block script_extra %}{% endblock %} {% include '_scripts/boostrap.swig' %} {% include '_third-party/comments/index.swig' %} {% include '_third-party/search/index.swig' %} {% include '_third-party/analytics/lean-analytics.swig' %} {% include '_third-party/analytics/firestore.swig' %} {% include '_third-party/seo/baidu-push.swig' %} {% include '_third-party/needsharebutton.swig' %} {% include '_third-party/rating.swig' %} {% include '_third-party/mathjax.swig' %} {% include '_third-party/scroll-cookie.swig' %} {% include '_third-party/exturl.swig' %}
-  <script src="/js/src/gitment.browser.js"></script>
+  <!-- gitalk评论插件 -->
+  <script type="text/javascript" src="/js/src/gitalk.min.js"></script>
   <script>
-  var gitment = new Gitment({
-    id: 'location.href', // 可选。默认为 location.href
-    owner: 'pengqiangsheng',
+  const gitalk = new Gitalk({
+    clientID: '7267b0f4df041dd7f88c',
+    clientSecret: 'fe5fb2e83345dcdc840773a377f3c6a488629abf',
     repo: 'message',
-    oauth: {
-      client_id: '7267b0f4df041dd7f88c',
-      client_secret: 'fe5fb2e83345dcdc840773a377f3c6a488629abf',
-    },
+    owner: 'pengqiangsheng',
+    admin: ['pengqiangsheng'],
+    id: location.href,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: true  // Facebook-like distraction free mode
   })
-  gitment.render('container')
 
+gitalk.render('gitalk-container')
   </script>
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
