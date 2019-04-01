@@ -50,14 +50,17 @@
   {% include '_scripts/vendors.swig' %} {% include '_scripts/commons.swig' %} {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %} {% include scheme_script %} {% block script_extra %}{% endblock %} {% include '_scripts/boostrap.swig' %} {% include '_third-party/comments/index.swig' %} {% include '_third-party/search/index.swig' %} {% include '_third-party/analytics/lean-analytics.swig' %} {% include '_third-party/analytics/firestore.swig' %} {% include '_third-party/seo/baidu-push.swig' %} {% include '_third-party/needsharebutton.swig' %} {% include '_third-party/rating.swig' %} {% include '_third-party/mathjax.swig' %} {% include '_third-party/scroll-cookie.swig' %} {% include '_third-party/exturl.swig' %}
   <!-- gitalk评论插件 -->
   <script type="text/javascript" src="/js/src/gitalk.min.js"></script>
+  <script src="/js/src/md5.js" type="text/javascript"></script>
   <script>
+  let id = location.href
+  id = hex_md5(id)
   const gitalk = new Gitalk({
     clientID: '871b33fddf76276d91aa',
     clientSecret: '946e58b00919856b957a8b134b18e232b44af6a5',
     repo: 'hexo',
     owner: 'pengqiangsheng',
     admin: ['pengqiangsheng'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: id,      // Ensure uniqueness and length less than 50
     distractionFreeMode: true  // Facebook-like distraction free mode
   })
   gitalk.render('gitalk-container')
