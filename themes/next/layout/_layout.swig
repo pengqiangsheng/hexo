@@ -52,12 +52,12 @@
   <script type="text/javascript" src="/js/src/gitalk.min.js"></script>
   <script>
   const gitalk = new Gitalk({
-    clientID: 'a1bede22cdf46056c219',
-    clientSecret: '712d7ab5c91a79e82d7a06afce3c64de12956210',
-    repo: 'books',
+    clientID: '871b33fddf76276d91aa',
+    clientSecret: '946e58b00919856b957a8b134b18e232b44af6a5',
+    repo: 'hexo',
     owner: 'pengqiangsheng',
     admin: ['pengqiangsheng'],
-    id: location.href,      // Ensure uniqueness and length less than 50
+    id: location.pathname,      // Ensure uniqueness and length less than 50
     distractionFreeMode: true  // Facebook-like distraction free mode
   })
   gitalk.render('gitalk-container')
