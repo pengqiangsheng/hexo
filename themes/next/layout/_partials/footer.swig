@@ -24,8 +24,8 @@
   <div id="mycoding" align="center">
     <p style="margin: 0">Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
   </div>
-
-
+<!-- 统计时间 -->
+  <div>小南已经<span id="htmer_time"></span></div>
 
 {% if theme.footer.powered %}
   <div class="powered-by">{#

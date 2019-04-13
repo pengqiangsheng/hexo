@@ -43,7 +43,7 @@
     </main>
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        {% include '_partials/footer.swig' %} {% include '_third-party/analytics/analytics-with-widget.swig' %} {% block footer %}{% endblock %}
+         {% include '_partials/footer.swig' %} {% include '_third-party/analytics/analytics-with-widget.swig' %} {% block footer %}{% endblock %}
       </div>
     </footer>
     {% if not theme.sidebar.b2t %}
@@ -92,6 +92,51 @@
   <script type="text/javascript" src="/js/src/love.js"></script>
   <!-- is_coding -->
   <script type="text/javascript" src="/js/src/mycoding.js"></script>
+  <script>
+ function secondToDate(second) {
+ if (!second) {
+ return 0;
+ }
+ var time = new Array(0, 0, 0, 0, 0);
+ if (second >= 365 * 24 * 3600) {
+ time[0] = parseInt(second / (365 * 24 * 3600));
+ second %= 365 * 24 * 3600;
+ }
+ if (second >= 24 * 3600) {
+ time[1] = parseInt(second / (24 * 3600));
+ second %= 24 * 3600;
+ }
+ if (second >= 3600) {
+ time[2] = parseInt(second / 3600);
+ second %= 3600;
+ }
+ if (second >= 60) {
+ time[3] = parseInt(second / 60);
+ second %= 60;
+ }
+ if (second > 0) {
+ time[4] = second;
+ }
+ return time;
+ }
+</script>
+<!-- 统计网站运行时间 -->
+<script type="text/javascript" language="javascript">
+  function setTime() {
+  // 博客创建时间秒数，时间格式中，月比较特殊，是从 0 开始的，所以想要显示 5 月，得写 4 才行，如下
+  var create_time = Math.round(new Date(Date.UTC(2018, 07, 16, 0, 0, 0))
+  .getTime() / 1000);
+  // 当前时间秒数,增加时区的差异
+  var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+  currentTime = secondToDate((timestamp - create_time));
+  currentTimeHtml = currentTime[0] + '岁零' + currentTime[1] + '天了呢！';
+  // + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+  // + '秒';
+  document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+  }
+  setInterval(setTime, 1000);
+</script>
+ 
 </body>
 
 </html>
