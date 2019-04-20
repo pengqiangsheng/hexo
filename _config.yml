@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 知与南
-subtitle: 分享知识，共享信息
+title: 知与南 AboutMe.ink
+subtitle: 叩首问路,码梦为生
 description: 知与南的博客，分享决定技术的高低，学习拉开技术的差距
 author: 知与南
 language: zh-Hans
@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://forever.netlify.com/
+url: http://aboutme.ink/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -78,9 +78,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo:
-    github: git@github.com:pengqiangsheng/pengqiangsheng.github.io.git,master
-    #coding: git@git.coding.net:pengqiangsheng/blog.git,master
+  repo: http://git.aboutme.ink/pqs/blog.git
+
 
 #安装搜索插件
 #npm install hexo-generator-search --save

@@ -155,8 +155,8 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  GoGs: http://peng.guozhaoxi.top:8089
-  NextCloud: http://peng.guozhaoxi.top:8088
+  GoGs: http://git.aboutme.ink
+  NextCloud: http://cloud.aboutme.ink
   Gitee: https://gitee.com/redqueen
   Coding: https://coding.net/u/pengqiangsheng
 # Sidebar Avatar

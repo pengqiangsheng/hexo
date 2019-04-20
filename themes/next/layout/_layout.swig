@@ -2,6 +2,8 @@
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 
 <head>
+  <meta name="google-site-verification" content="enOIbDP_rOakODkdpYznnwBnTD_Xh_KWFA2kPbX3sdY">
+  <meta name="keywords" content="知与南, 知与南的博客，叩首问路，码梦为生。">
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
   {% include '_third-party/analytics/index.swig' %}
@@ -9,11 +11,6 @@
   <link rel="stylesheet"  href="/js/src/gitalk.css">
   <!-- 看板娘插件css -->
   <link rel="stylesheet" href="/js/live2d/css/live2d.css" />
-  <style>
-  body {
-    user-select: none;
-  }
-  </style>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
@@ -90,8 +87,6 @@
   </script>
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
-  <!-- is_coding -->
-  <script type="text/javascript" src="/js/src/mycoding.js"></script>
   <script>
  function secondToDate(second) {
  if (!second) {
