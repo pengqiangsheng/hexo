@@ -99,5 +99,23 @@ categories: Linux
 8、点击仓库设置配置git钩子或者web钩子
 ![](docker-gogs-nginx配置Git服务自动部署Web应用/8.png)
 ![](docker-gogs-nginx配置Git服务自动部署Web应用/9.png)
-## 后续更新
+![](docker-gogs-nginx配置Git服务自动部署Web应用/16.png)
+以上配置只需要修改UserName、repo和repoHttpUrl就行，然后点更新钩子设置
+9、克隆你的仓库到本地并且添加一个index.txt文件并写入内容
+![](docker-gogs-nginx配置Git服务自动部署Web应用/10.png)
+10、更新你的本地仓库后，推送到远程仓库
+![](docker-gogs-nginx配置Git服务自动部署Web应用/11.png)
+如果会显示上图的信息，说明你的钩子设置成功，并且代码已经推送到了nginx服务器上
+11、打开你的浏览器测试一下
+![](docker-gogs-nginx配置Git服务自动部署Web应用/12.png)
+可以看到，已经可以访问了
+12、再次更新你的本地仓库
+![](docker-gogs-nginx配置Git服务自动部署Web应用/13.png)
+13、推送到远程仓库
+![](docker-gogs-nginx配置Git服务自动部署Web应用/14.png)
+14、再次打开浏览器访问
+![](docker-gogs-nginx配置Git服务自动部署Web应用/15.png)
+## 小南有话说
+1.其实我利用的原理就是git本身有钩子的一个功能特点，结合docker下的gogs和nginx开发了一套容易理解又非常高效的web应用自动部署平台
+2.gogs还支持webhooks的web钩子进行代码的部署，这边我就没有多做讲解了，如果你学会了git钩子部署，那么web钩子部署也不是难事
 ![](http://aboutme.ink/pqs/img/huanhu.gif)
