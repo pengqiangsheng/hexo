@@ -136,13 +136,13 @@
     // 当前时间秒数,增加时区的差异
     var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
     currentTime = secondToDate((timestamp - create_time));
-    currentTimeHtml = currentTime[0] + '岁零' + currentTime[1] + '天了呢！';
+    currentTimeHtml = currentTime[0] + '岁零' + currentTime[1] + '天了';
     // + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
     // + '秒';
     document.getElementById("htmer_time").innerHTML = currentTimeHtml;
     }
     setInterval(setTime, 1000);
-</script>
+  </script>
   <!-- 百度推送脚本 -->
   <script>
   (function(){
@@ -157,6 +157,85 @@
               var s = document.getElementsByTagName("script")[0];
               s.parentNode.insertBefore(bp, s);
           })();
+  </script>
+  <!-- 统计访问量 -->
+  <script>
+  /**
+  * 实现访问量统计和留言
+  * @authors pengqiangsheng
+  * @date    2018-08-26 09:22:10
+  * @version v1.0
+  */
+  window.onload = function() {
+      showSitePv();
+      var messageOnlyGetOnce = 0;
+      if(messageOnlyGetOnce==0) {
+        showMessage();
+        messageOnlyGetOnce=1;
+      }
+     
+  }
+  function showMessage() {
+      let str = "query";
+      let xmlhttp;
+      let message = document.getElementById("mymessage");
+      if (window.XMLHttpRequest) {
+          // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+          xmlhttp = new XMLHttpRequest();
+      } else {
+          // IE6, IE5 浏览器执行代码
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              message.innerHTML += xmlhttp.responseText;
+          }
+      }
+      xmlhttp.open("GET", "http://aboutme.ink/plug/getMessage.php?q=" + str, true);
+      xmlhttp.send();
+  }
+  function showSitePv() {
+      let str = "query";
+      let xmlhttp;
+      let sitePv = document.getElementById("site_pv");
+      if (window.XMLHttpRequest) {
+          // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+          xmlhttp = new XMLHttpRequest();
+      } else {
+          // IE6, IE5 浏览器执行代码
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+              sitePv.innerHTML += xmlhttp.responseText;
+              addOnePv(xmlhttp.responseText);
+          }
+      }
+      xmlhttp.open("GET", "http://aboutme.ink/plug/getCount.php?q=" + str, true);
+      xmlhttp.send();
+  }
+  function addOnePv(strPv) {
+    let pv = parseInt(strPv) + 1
+    let xmlhttp;
+    if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.responseText == 'success') {
+              console.log('success')
+            }else {
+              console.log('fali')
+            }
+        }
+    }
+    xmlhttp.open("GET", "http://aboutme.ink/plug/addCount.php?pv=" + pv, true);
+    xmlhttp.send();
+  }
   </script>
 </body>
 

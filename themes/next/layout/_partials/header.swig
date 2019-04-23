@@ -48,7 +48,12 @@
           </a>
         </li>
       {% endfor %}
-
+      <li class="menu-item menu-item-message">
+          <a href="/message" rel="section">
+            <i class="menu-item-icon fa fa-fw"><img src="http://aboutme.ink/pqs/img/message.png" style="width:100%; line-height:37px;" ></i> <br />
+            留言
+        </a>
+      </li>
       {% if hasSearch %}
         <li class="menu-item menu-item-search">
           {% if theme.swiftype_key %}

@@ -21,9 +21,8 @@
   {% endif %}
 </div>
  
-<!-- 统计时间 -->
-  <div>小南已经<span id="htmer_time"></span></div>
-
+  <!-- 统计时间 --> <!-- 统计访问量-->
+  <div>小南已经<span id="htmer_time"></span>&nbsp;|&nbsp;被偷看<span id="site_pv"></span>次</div>
 {% if theme.footer.powered %}
   <div class="powered-by">{#
   #}{{ __('footer.powered', '<a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a>') }}{#
