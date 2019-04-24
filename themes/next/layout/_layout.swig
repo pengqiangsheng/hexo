@@ -90,7 +90,7 @@
   <!-- live2d看板娘 -->
   <script type="text/javascript">
     var message_Path = '/js/live2d/'
-    var home_Path = 'https://forever.netlify.com/'  //此处修改为你的域名，必须带斜杠
+    var home_Path = 'http://aboutme.ink/'  //此处修改为你的域名，必须带斜杠
   </script>
   <script type="text/javascript" src="/js/live2d/js/live2d.js"></script>
   <script type="text/javascript" src="/js/live2d/js/message.js"></script>
@@ -168,34 +168,29 @@
   */
   window.onload = function() {
       showSitePv();
-      var messageOnlyGetOnce = 0;
-      if(messageOnlyGetOnce==0) {
-        showMessage();
-        messageOnlyGetOnce=1;
-      }
-     
+      showPagePv();
   }
-  function showMessage() {
-      let str = "query";
-      let xmlhttp;
-      let message = document.getElementById("mymessage");
-      if (window.XMLHttpRequest) {
-          // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-          xmlhttp = new XMLHttpRequest();
-      } else {
-          // IE6, IE5 浏览器执行代码
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-              message.innerHTML += xmlhttp.responseText;
-          }
-      }
-      xmlhttp.open("GET", "http://aboutme.ink/plug/getMessage.php?q=" + str, true);
-      xmlhttp.send();
-  }
+  // function myMessage() {
+  //     let str = "query";
+  //     let xmlhttp;
+  //     let message = document.getElementById("mymessage");
+  //     if (window.XMLHttpRequest) {
+  //         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+  //         xmlhttp = new XMLHttpRequest();
+  //     } else {
+  //         // IE6, IE5 浏览器执行代码
+  //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  //     }
+  //     xmlhttp.onreadystatechange = function() {
+  //         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+  //             message.innerHTML += xmlhttp.responseText;
+  //         }
+  //     }
+  //     xmlhttp.open("GET", "http://aboutme.ink/plug/getMessage.php?q=" + str, true);
+  //     xmlhttp.send();
+  // }
   function showSitePv() {
-      let str = "query";
+      let pageId = 1;
       let xmlhttp;
       let sitePv = document.getElementById("site_pv");
       if (window.XMLHttpRequest) {
@@ -211,10 +206,38 @@
               addOnePv(xmlhttp.responseText);
           }
       }
-      xmlhttp.open("GET", "http://aboutme.ink/plug/getCount.php?q=" + str, true);
+      xmlhttp.open("GET", "http://aboutme.ink/plug/getCount.php?pageId=" + pageId, true);
       xmlhttp.send();
   }
-  function addOnePv(strPv) {
+  function showPagePv() {
+    let pageId = id
+    let xmlhttp;
+    let pagePV = document.getElementById("myPagePv");
+    if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+           if(xmlhttp.responseText=="null result") {
+              updatePagePv('1', 'insert');
+              pagePV.innerHTML += "本文阅读数1次";
+           }else {
+              pagePV.innerHTML += "本文阅读数";
+              pagePV.innerHTML += xmlhttp.responseText;
+              pagePV.innerHTML += "次";
+              updatePagePv(xmlhttp.responseText, 'update');
+            }
+        }
+    }
+    xmlhttp.open("GET", "http://aboutme.ink/plug/getCount.php?pageId=" + pageId, true);
+    xmlhttp.send();
+  }
+  function updatePagePv(strPv, type) {
+    let pageId = id
     let pv = parseInt(strPv) + 1
     let xmlhttp;
     if (window.XMLHttpRequest) {
@@ -233,7 +256,34 @@
             }
         }
     }
-    xmlhttp.open("GET", "http://aboutme.ink/plug/addCount.php?pv=" + pv, true);
+    if (type === "insert") {
+      xmlhttp.open("GET", "http://aboutme.ink/plug/addCount.php?pv=" + pv + "&pageId=" + pageId, true);
+    }else {
+       xmlhttp.open("GET", "http://aboutme.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId, true);
+    }
+    xmlhttp.send();
+  }
+  function addOnePv(strPv) {
+    let pageId = 1;
+    let pv = parseInt(strPv) + 1
+    let xmlhttp;
+    if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.responseText == 'success') {
+              console.log('success')
+            }else {
+              console.log('fali')
+            }
+        }
+    }
+    xmlhttp.open("GET", "http://aboutme.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId , true);
     xmlhttp.send();
   }
   </script>

@@ -212,7 +212,12 @@
                  <span class="leancloud-visitors-count"></span>
              </span>
           {% endif %}
-
+          {# aboutme PageView #}
+          {% if not is_index %} 
+          <span class="post-meta-divider">|</span>
+            <span id="myPagePv"></span>
+          </span>
+          {% endif %}
           {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.page_pv %}
             <span class="post-meta-divider">|</span>
             <span class="page-pv">{{ theme.busuanzi_count.page_pv_header }}
