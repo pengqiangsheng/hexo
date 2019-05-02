@@ -11,7 +11,7 @@ categories: nginx
 ## 如果是ip:80以外的端口怎么办？
 一台服务器不可能说只部署一个web应用吧，其他的都要通过ip+端口或者域名+端口去访问多麻烦啊，而且样子也不好看呀。
 这个时候，**救世主nginx**大爷就出现了，他说我有很多的*NB功能*啊，例如反向代理啊！
-![](http://aboutme.ink/pqs/img/nb.gif)
+![](https://inner.ink/pqs/img/nb.gif)
 ## 前提
 你需要有一个域名和一台服务器（国内需备案）
 然后去解析域名，添加两个A记录如下图
@@ -34,7 +34,7 @@ categories: nginx
 然后打开浏览器输入git.aboutme.ink试试
 ![](用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/5.png)
 成功咯！
-![](http://aboutme.ink/pqs/img/wen.gif)
+![](https://inner.ink/pqs/img/wen.gif)
 然后我再来一个cloud.aboutme.ink试试,打开浏览器访问 cloud.aboutme.ink也可以访问了
 ![](用nginx配置反向代理实现二级域名配置到公网ip的不同端口的应用/6.png)
 
@@ -57,4 +57,4 @@ categories: nginx
 ```
 # 后续
 大家可以按照我的方法试试看，不行可以留言反馈咯，我会及时解决的。至于这两个应用怎么构建的，后续出教程啊！
-![](http://aboutme.ink/pqs/img/huanhu.gif)
+![](https://inner.ink/pqs/img/huanhu.gif)

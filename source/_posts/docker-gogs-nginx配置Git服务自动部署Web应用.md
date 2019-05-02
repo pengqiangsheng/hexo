@@ -86,7 +86,7 @@ categories: Linux
 ![](docker-gogs-nginx配置Git服务自动部署Web应用/2.png)
 ![](docker-gogs-nginx配置Git服务自动部署Web应用/3.png)
 如果出现这些页面说明成功了！
-![](http://aboutme.ink/pqs/img/huaji.gif)
+![](https://inner.ink/pqs/img/huaji.gif)
 5、配置gogs，打开页面ip:10080
 数据库选SQLite3，域名写自己的服务器ip，ssh端口填参数三10022，勾选内置服务器，http端口填写参数二10080，应用url填写ip:10080，然后点立即安装
 ![](docker-gogs-nginx配置Git服务自动部署Web应用/4.png)
@@ -118,4 +118,4 @@ categories: Linux
 ## 小南有话说
 1.其实我利用的原理就是git本身有钩子的一个功能特点，结合docker下的gogs和nginx开发了一套容易理解又非常高效的web应用自动部署平台
 2.gogs还支持webhooks的web钩子进行代码的部署，这边我就没有多做讲解了，如果你学会了git钩子部署，那么web钩子部署也不是难事
-![](http://aboutme.ink/pqs/img/huanhu.gif)
+![](https://inner.ink/pqs/img/huanhu.gif)
