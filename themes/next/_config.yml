@@ -155,8 +155,8 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  GoGs: http://git.aboutme.ink
-  NextCloud: http://cloud.aboutme.ink
+  GoGs: http://git.inner.ink
+  NextCloud: http://cloud.inner.ink
   Gitee: https://gitee.com/redqueen
   Coding: https://coding.net/u/pengqiangsheng
 # Sidebar Avatar

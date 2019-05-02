@@ -206,7 +206,7 @@
               addOnePv(xmlhttp.responseText);
           }
       }
-      xmlhttp.open("GET", "http://aboutme.ink/plug/getCount.php?pageId=" + pageId, true);
+      xmlhttp.open("GET", "https://inner.ink/plug/getCount.php?pageId=" + pageId, true);
       xmlhttp.send();
   }
   function showPagePv() {
@@ -233,7 +233,7 @@
             }
         }
     }
-    xmlhttp.open("GET", "http://aboutme.ink/plug/getCount.php?pageId=" + pageId, true);
+    xmlhttp.open("GET", "https://inner.ink/plug/getCount.php?pageId=" + pageId, true);
     xmlhttp.send();
   }
   function updatePagePv(strPv, type) {
@@ -257,9 +257,9 @@
         }
     }
     if (type === "insert") {
-      xmlhttp.open("GET", "http://aboutme.ink/plug/addCount.php?pv=" + pv + "&pageId=" + pageId, true);
+      xmlhttp.open("GET", "https://inner.ink/plug/addCount.php?pv=" + pv + "&pageId=" + pageId, true);
     }else {
-       xmlhttp.open("GET", "http://aboutme.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId, true);
+       xmlhttp.open("GET", "https://inner.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId, true);
     }
     xmlhttp.send();
   }
@@ -283,7 +283,7 @@
             }
         }
     }
-    xmlhttp.open("GET", "http://aboutme.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId , true);
+    xmlhttp.open("GET", "https://inner.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId , true);
     xmlhttp.send();
   }
   </script>
