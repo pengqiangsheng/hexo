@@ -99,4 +99,4 @@ twitch页面
 
 后续整理，如有需要先email我
 
-![](https:inner.ink/pqs/img/huanhu.gif)
+![](https://inner.ink/pqs/img/huanhu.gif)
