@@ -155,6 +155,7 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
+  指舞社: https://www.fingerdancer.cn
   GoGs: http://git.inner.ink
   NextCloud: http://cloud.inner.ink
   Gitee: https://gitee.com/redqueen
