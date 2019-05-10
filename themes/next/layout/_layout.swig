@@ -74,6 +74,11 @@
     }
     id = href
   }
+  if(id.indexOf('ink') > -1) {
+    console.log('this is ink page!')
+  }else {
+    console.log('this is netlify.com page!')
+  }
   console.log(id)
   id = hex_md5(id)
   const gitalk = new Gitalk({
