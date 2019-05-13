@@ -2,7 +2,6 @@
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 
 <head>
-  <meta name="google-site-verification" content="enOIbDP_rOakODkdpYznnwBnTD_Xh_KWFA2kPbX3sdY">
   <meta name="keywords" content="知与南, 知与南的博客，叩首问路，码梦为生。">
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
