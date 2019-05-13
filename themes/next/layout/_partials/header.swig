@@ -50,7 +50,7 @@
       {% endfor %}
       <li class="menu-item menu-item-message">
           <a href="/message" rel="section">
-            <i class="menu-item-icon fa fa-fw"><img src="https://inner.ink/pqs/img/message.png" style="width:100%; line-height:37px;" ></i> <br />
+            <i class="menu-item-icon fa fa-fw fa-th"></i>
             留言
         </a>
       </li>
