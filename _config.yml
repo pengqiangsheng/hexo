@@ -79,7 +79,7 @@ theme: next
 deploy:
   type: git
   repo: http://git.aboutme.ink/pqs/blog.git
-
+# repo: https://github.com/pengqiangsheng/pengqiangsheng.github.io.git
 
 #安装搜索插件
 #npm install hexo-generator-search --save
