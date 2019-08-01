@@ -27,8 +27,8 @@ override: false
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /images/sea.png
-  medium: /images/sea.png
+  small: /images/favorite.png
+  medium: /images/favorite.png
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
   #android_manifest: /images/manifest.json
@@ -155,13 +155,14 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  大仙seo: https://www.daxianseo.cn
-  Angelive: http://www.angelive.fun
   YouKu: https://i.youku.com/i/UMzYwMzA4ODcy
   指舞社: https://www.fingerdancer.cn
-  GoGs: http://git.aboutme.ink
+  GoGs: http://git.gitku.cn
   Gitee: https://gitee.com/redqueen
   Coding: https://coding.net/u/pengqiangsheng
+  大仙seo: https://www.daxianseo.cn
+  Angelive: http://www.angelive.fun
+  haining: http://hainingzf.com
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
