@@ -134,4 +134,5 @@ function initLive2d (){
         $('.hide-button').fadeOut(600)
     })
 }
+
 initLive2d ();

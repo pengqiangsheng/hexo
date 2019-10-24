@@ -30,7 +30,7 @@
           <div id="content" class="content">
             {% block content %}{% endblock %}
           </div>
-         
+
           <div id="gitalk-container"></div>
           {% include '_third-party/duoshuo-hot-articles.swig' %} {% include '_partials/comments.swig' %}
         </div>
@@ -61,6 +61,7 @@
   <script type="text/javascript" src="/js/src/gitalk.min.js"></script>
   <script src="/js/src/md5.js" type="text/javascript"></script>
   <script>
+  console.log('\n' + ' %c Welcome to' + ' '  + ' %c http://inner.ink ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
   let id = location.href
   if(id.indexOf('www') > -1) {
     let str = id.split(".")
@@ -103,14 +104,53 @@
 
   </script>
   <!-- live2d看板娘 -->
+  <!--  <script type="text/javascript" src="/js/live2d/js/live2d.js"></script>
+   <script type="text/javascript" src="/js/live2d/js/message.js"></script>-->
   <script type="text/javascript">
     var message_Path = '/js/live2d/'
-    var home_Path = 'http://aboutme.ink/'  //此处修改为你的域名，必须带斜杠
-  </script>
-  <script type="text/javascript" src="/js/live2d/js/live2d.js"></script>
-  <script type="text/javascript" src="/js/live2d/js/message.js"></script>
-  <script type="text/javascript">
-      loadlive2d("live2d", "/js/live2d/model/tia/model.json");
+    var home_Path = 'http://inner.ink/'  //此处修改为你的域名，必须带斜杠
+    function IsPC() {
+      var userAgentInfo = navigator.userAgent;
+      var Agents = ["Android", "iPhone",
+                  "SymbianOS", "Windows Phone",
+                  "iPad", "iPod"];
+      var flag = true;
+      for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+              flag = false;
+              break;
+          }
+      }
+      return flag;
+    }
+    function  loadScript(url, callback) {
+      let script = document.createElement('script');
+      if (script.readyState) { // IE
+          script.onreadystatechange = function () {
+              if (script.readyState === 'loaded' || script.readyState === 'complete') {
+                  script.onreadystatechange = null;
+                  callback();
+              }
+          }
+      } else { // 其他浏览器
+          script.onload = function () {
+              callback();
+          }
+      }
+      script.src = url;
+      document.body.appendChild(script)
+      // document.getElementsTagName('head')[0].appendChild('script');
+    }
+    const live2d = "https://inner.ink/js/live2d/js/live2d.js"
+    const message = "https://inner.ink/js/live2d/js/message.js"
+
+    if(IsPC()) {
+      loadScript(live2d,()=>{
+        loadScript(message,()=>{
+          loadlive2d("live2d", "/js/live2d/model/tia/model.json");
+        })
+      })
+    }
   </script>
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
@@ -227,7 +267,8 @@
   function showPagePv() {
     let pageId = id
     let xmlhttp;
-    let pagePV = document.getElementById("myPagePv");
+    let pagePV = document.getElementById("myPagePv") || null
+    if(!document.getElementById("myPagePv")) return
     if (window.XMLHttpRequest) {
         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
         xmlhttp = new XMLHttpRequest();
@@ -265,9 +306,9 @@
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             if(xmlhttp.responseText == 'success') {
-              console.log('success')
+              // console.log('success')
             }else {
-              console.log('fali')
+              // console.log('fali')
             }
         }
     }
@@ -292,9 +333,9 @@
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             if(xmlhttp.responseText == 'success') {
-              console.log('success')
+              // console.log('success')
             }else {
-              console.log('fali')
+              // console.log('fali')
             }
         }
     }
