@@ -1,0 +1,20 @@
+{
+  "name": "知与南",
+  "short_name": "知与南",
+  "icons": [
+    {
+      "src": "/uploads/13_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/uploads/13_363.png",
+      "sizes": "363x363",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#222"
+}

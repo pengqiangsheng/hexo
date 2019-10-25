@@ -10,6 +10,8 @@
   <link rel="stylesheet"  href="/js/src/gitalk.css">
   <!-- 看板娘插件css -->
   <link rel="stylesheet" href="/js/live2d/css/live2d.css" />
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
@@ -343,6 +345,12 @@
     xmlhttp.open("GET", "https://inner.ink/plug/updateCount.php?pv=" + pv + "&pageId=" + pageId , true);
     xmlhttp.send();
   }
+  </script>
+  <!-- 加载sw.js -->
+  <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
   </script>
 </body>
 
