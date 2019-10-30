@@ -59,12 +59,12 @@
     {% endif %}
   </div>
   {% include '_scripts/vendors.swig' %} {% include '_scripts/commons.swig' %} {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %} {% include scheme_script %} {% block script_extra %}{% endblock %} {% include '_scripts/boostrap.swig' %} {% include '_third-party/comments/index.swig' %} {% include '_third-party/search/index.swig' %} {% include '_third-party/analytics/lean-analytics.swig' %} {% include '_third-party/analytics/firestore.swig' %} {% include '_third-party/seo/baidu-push.swig' %} {% include '_third-party/needsharebutton.swig' %} {% include '_third-party/rating.swig' %} {% include '_third-party/mathjax.swig' %} {% include '_third-party/scroll-cookie.swig' %} {% include '_third-party/exturl.swig' %}
+  <!-- conslog插件 -->
+  <script src="/js/prints/index.js" type="text/javascript"></script>
   <!-- gitalk评论插件 -->
   <script type="text/javascript" src="/js/src/gitalk.min.js"></script>
   <script src="/js/src/md5.js" type="text/javascript"></script>
   <script>
-  console.log('\n' + ' %c Welcome to' + ' '  + ' %c http://inner.ink ' + '\n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;');
-　console.log("%c ", "background: url(https://inner.ink/love/code-love-300x200.jpg) center;padding-left:290px;padding-bottom: 242px;")
   let id = location.href
   if(id.indexOf('www') > -1) {
     let str = id.split(".")
